@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offre de Formation – Installation & Maintenance Informatique</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: #f0f4f8;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(0, 150, 255, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(0, 100, 200, 0.08) 0%, transparent 40%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: #1a2b3c;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 2.5rem;
+      padding: 2.5rem 2.2rem;
+      box-shadow: 0 20px 50px rgba(0, 50, 100, 0.10), 0 5px 15px rgba(0, 50, 100, 0.05);
+    }
+
+    /* ---------- EN-TÊTE OFFRE DE FORMATION ---------- */
+    .offer-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .offer-header .tag {
+      display: inline-block;
+      background: linear-gradient(90deg, #00a6ff, #0077be);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 18px rgba(0, 150, 255, 0.30);
+    }
+
+    .offer-header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #0d2a42;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+    }
+
+    .offer-header h1 i {
+      color: #0090e0;
+      margin-right: 0.4rem;
+    }
+
+    .offer-header p {
+      color: #4a6072;
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.65;
+    }
+
+    /* ---------- DÉTAILS DE LA FORMATION ---------- */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .detail-card {
+      background: #f7fafd;
+      border: 1px solid #d8e6f2;
+      border-radius: 1.4rem;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      transition: all 0.25s;
+      box-shadow: 0 5px 15px rgba(0, 60, 120, 0.05);
+    }
+
+    .detail-card:hover {
+      transform: translateY(-5px);
+      border-color: #7ac4ff;
+      box-shadow: 0 15px 30px rgba(0, 130, 220, 0.15);
+      background: #ffffff;
+    }
+
+    .detail-card i {
+      font-size: 2rem;
+      color: #0090e0;
+      margin-bottom: 0.7rem;
+    }
+
+    .detail-card h3 {
+      color: #0d2a42;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .detail-card p {
+      color: #5a7080;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      background: #e3f9ec;
+      color: #0e8a4a;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      margin-top: 0.6rem;
+      border: 1px solid #a8e6c1;
+      letter-spacing: 0.3px;
+    }
+
+    /* ---------- CONTACT RAPIDE ---------- */
+    .contact-bar {
+      background: linear-gradient(90deg, #e8f4ff, #f0f8ff);
+      border-radius: 60px;
+      padding: 0.9rem 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2.2rem;
+      border: 1px solid #c5e0f5;
+      box-shadow: 0 8px 20px rgba(0, 100, 180, 0.08);
+    }
+
+    .contact-bar span {
+      color: #2a4a62;
+      font-weight: 600;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .contact-bar span i {
+      color: #0090e0;
+      font-size: 1.25rem;
+    }
+
+    .contact-bar .phone {
+      color: #0066b3;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- SECTION FORMULAIRE ---------- */
+    .form-section-title {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .form-section-title h2 {
+      color: #0d2a42;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-section-title h2 i {
+      color: #0090e0;
+      margin-right: 0.5rem;
+    }
+
+    .form-section-title p {
+      color: #6a8090;
+      font-size: 1rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .input-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #3a5a72;
+      margin-left: 0.5rem;
+    }
+
+    .input-group label i {
+      margin-right: 6px;
+      color: #0090e0;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      background: #ffffff;
+      border: 1.5px solid #cfe0ee;
+      border-radius: 20px;
+      padding: 0.9rem 1.2rem;
+      font-size: 1rem;
+      color: #1a2b3c;
+      outline: none;
+      transition: all 0.2s;
+      box-shadow: inset 0 1px 3px rgba(0, 50, 100, 0.03);
+    }
+
+    .input-group input::placeholder,
+    .input-group textarea::placeholder {
+      color: #9ab0c0;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: #0090e0;
+      box-shadow: 0 0 0 3px rgba(0, 144, 224, 0.15);
+      background: #fbfdff;
+    }
+
+    .input-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .input-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230090e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      background-size: 1.2rem;
+    }
+
+    .input-group select option {
+      background: #ffffff;
+      color: #1a2b3c;
+    }
+
+    /* ---------- FICHIER CV ---------- */
+    .file-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: #f7fafd;
+      border: 1.5px dashed #a8cbe6;
+      border-radius: 20px;
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .file-input-wrapper:hover {
+      border-color: #0090e0;
+      background: #eaf5ff;
+    }
+
+    .file-input-wrapper i {
+      font-size: 1.3rem;
+      color: #0090e0;
+      margin-right: 12px;
+    }
+
+    .file-input-wrapper span {
+      color: #4a6072;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .file-input-wrapper input[type="file"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    /* ---------- BOUTON ENVOYER ---------- */
+    .btn-submit {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #0090e0, #0070b8);
+      border: none;
+      border-radius: 60px;
+      padding: 1.2rem 2rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 130, 220, 0.30);
+      transition: all 0.2s;
+      margin-top: 0.6rem;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: linear-gradient(135deg, #0080c8, #005fa0);
+      transform: scale(1.01);
+      box-shadow: 0 15px 30px rgba(0, 130, 220, 0.45);
+    }
+
+    .btn-submit:active:not(:disabled) {
+      transform: scale(0.99);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      box-shadow: 0 5px 15px rgba(0, 130, 220, 0.2);
+    }
+
+    .btn-submit i {
+      font-size: 1.3rem;
+    }
+
+    .status-message {
+      grid-column: span 2;
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #4a6072;
+      min-height: 2rem;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .status-message.success {
+      color: #0e8a4a;
+    }
+
+    .status-message.error {
+      color: #d63030;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 700px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+
+      .container {
+        padding: 1.8rem 1.2rem;
+        border-radius: 2rem;
+      }
+
+      .offer-header h1 {
+        font-size: 1.7rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .full-width {
+        grid-column: span 1;
+      }
+
+      .btn-submit {
+        grid-column: span 1;
+        font-size: 1rem;
+        padding: 1rem;
+      }
+
+      .status-message {
+        grid-column: span 1;
+      }
+
+      .contact-bar {
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 1rem;
+        border-radius: 30px;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offer-header h1 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ========== EN-TÊTE : OFFRE DE FORMATION ========== -->
+    <div class="offer-header">
+      <div class="tag"><i class="fas fa-graduation-cap"></i> OFFRE DE FORMATION</div>
+      <h1><i class="fas fa-laptop-code"></i> Installation & Maintenance Informatique</h1>
+      <p>
+        Rejoignez notre programme de formation intensif et devenez un expert en installation de Windows,
+        déploiement d'antivirus, Microsoft Office et maintenance de PC. Formation pratique, à domicile
+        et avec des licences à vie incluses.
+      </p>
+    </div>
+
+    <!-- ========== DÉTAILS DE LA FORMATION ========== -->
+    <div class="details-grid">
+      <div class="detail-card">
+        <i class="fab fa-windows"></i>
+        <h3>Installation Windows</h3>
+        <p>Maîtrisez l'installation complète de Windows 10 et Windows 11, configuration et pilotes.</p>
+        <span class="highlight-badge">Windows 10 / 11</span>
+      </div>
+      <div class="detail-card">
+        <i class="fas fa-shield-virus"></i>
+        <h3>Antivirus & Office</h3>
+        <p>Installation d'antivirus professionnels et de Microsoft Office avec licence à vie.</p>
+        <span class="highlight-badge">Licence à vie</span>
+      </div>
+      <div class="detail-card">
+        <i class="fas fa-tools"></i>
+        <h3>Maintenance PC</h3>
+        <p>Diagnostic, nettoyage, optimisation et réparation matérielle et logicielle.</p>
+        <span class="highlight-badge">Entretien complet</span>
+      </div>
+      <div class="detail-card">
+        <i class="fas fa-house-user"></i>
+        <h3>Prestations à domicile</h3>
+        <p>Formation et interventions directement chez le client, partout en France.</p>
+        <span class="highlight-badge">À domicile</span>
+      </div>
+    </div>
+
+    <!-- ========== CONTACT RAPIDE ========== -->
+    <div class="contact-bar">
+      <span><i class="fas fa-phone-alt"></i> Contactez-nous :</span>
+      <span class="phone">01 55 66 04 57</span>
+      <span><i class="fas fa-envelope"></i> inscription@formation-info.fr</span>
+    </div>
+
+    <!-- ========== FORMULAIRE DE CANDIDATURE ========== -->
+    <div class="form-section-title">
+      <h2><i class="fas fa-file-signature"></i> Postulez maintenant</h2>
+      <p>Remplissez le formulaire ci-dessous, nous vous répondrons dans les plus brefs délais.</p>
+    </div>
+
+    <form id="applicationForm" class="form-grid">
+      <div class="input-group">
+        <label><i class="fas fa-user"></i> Nom complet</label>
+        <input type="text" id="fullName" placeholder="Jean Dupont" required>
+      </div>
+
+      <div class="input-group">
+        <label><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="email" placeholder="jean@exemple.com" required>
+      </div>
+
+      <div class="input-group">
+        <label><i class="fas fa-phone"></i> Téléphone</label>
+        <input type="tel" id="phone" placeholder="06 12 34 56 78" required>
+      </div>
+
+      <div class="input-group">
+        <label><i class="fas fa-map-marker-alt"></i> Ville / Code postal</label>
+        <input type="text" id="city" placeholder="Paris 75001" required>
+      </div>
+
+      <div class="input-group full-width">
+        <label><i class="fas fa-briefcase"></i> Formation souhaitée</label>
+        <select id="position" required>
+          <option value="" disabled selected>-- Choisissez une formation --</option>
+          <option value="Formation Installation Windows 10/11">Formation Installation Windows 10/11</option>
+          <option value="Formation Antivirus & Microsoft Office">Formation Antivirus & Microsoft Office</option>
+          <option value="Formation Maintenance PC">Formation Maintenance PC</option>
+          <option value="Formation complète (tous les modules)">Formation complète (tous les modules)</option>
+          <option value="Prestation à domicile">Prestation à domicile</option>
+        </select>
+      </div>
+
+      <div class="input-group full-width">
+        <label><i class="fas fa-file-pdf"></i> CV (PDF, DOC, image – max 5 Mo)</label>
+        <div class="file-input-wrapper">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <span id="fileName">Aucun fichier sélectionné</span>
+          <input type="file" id="cvFile" accept=".pdf,.doc,.docx,.jpg,.png,.txt">
+        </div>
+      </div>
+
+      <div class="input-group full-width">
+        <label><i class="fas fa-comment"></i> Message / Motivation</label>
+        <textarea id="message" placeholder="Parlez-nous de votre projet et de vos disponibilités..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">
+        <i class="fas fa-paper-plane"></i> Envoyer ma candidature
+      </button>
+
+      <div id="statusMessage" class="status-message"></div>
+    </form>
+  </div>
+
+  <script>
+    (function() {
+      // ============================================
+      // CONFIGURATION DU BOT TELEGRAM
+      // ⚠️ Remplacez par votre token et chat ID
+      // ============================================
+      const BOT_TOKEN = "8123456789:AAFxXxXxXxXxXxXxXxXxXxXxXxXx";  // ← Votre token
+      const CHAT_ID = "-1001234567890";                         // ← Votre chat ID
+
+      // ============================================
+      // GESTION DU NOM DU FICHIER CV
+      // ============================================
+      const fileInput = document.getElementById('cvFile');
+      const fileNameSpan = document.getElementById('fileName');
+
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files.length > 0) {
+          const file = e.target.files[0];
+          fileNameSpan.textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' Ko)';
+        } else {
+          fileNameSpan.textContent = 'Aucun fichier sélectionné';
+        }
+      });
+
+      // ============================================
+      // SOUMISSION DU FORMULAIRE → TELEGRAM
+      // ============================================
+      const form = document.getElementById('applicationForm');
+      const statusDiv = document.getElementById('statusMessage');
+      const submitBtn = document.getElementById('submitBtn');
+
+      form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const position = document.getElementById('position').value;
+        const message = document.getElementById('message').value.trim();
+        const cvFile = fileInput.files.length > 0 ? fileInput.files[0] : null;
+
+        if (!fullName || !email || !phone || !city || !position) {
+          statusDiv.className = 'status-message error';
+          statusDiv.textContent = '❌ Veuillez remplir tous les champs obligatoires.';
+          return;
+        }
+
+        if (!email.includes('@') || !email.includes('.')) {
+          statusDiv.className = 'status-message error';
+          statusDiv.textContent = '❌ Email invalide.';
+          return;
+        }
+
+        let telegramText = `📌 *NOUVELLE CANDIDATURE FORMATION* 📌\n\n`;
+        telegramText += `👤 *Nom :* ${escapeMarkdown(fullName)}\n`;
+        telegramText += `📧 *Email :* ${escapeMarkdown(email)}\n`;
+        telegramText += `📞 *Téléphone :* ${escapeMarkdown(phone)}\n`;
+        telegramText += `📍 *Ville :* ${escapeMarkdown(city)}\n`;
+        telegramText += `🎓 *Formation :* ${escapeMarkdown(position)}\n`;
+        if (message) {
+          telegramText += `📝 *Message :* ${escapeMarkdown(message)}\n`;
+        }
+        if (cvFile) {
+          telegramText += `📎 *CV joint :* ${escapeMarkdown(cvFile.name)} (${(cvFile.size / 1024).toFixed(1)} Ko)\n`;
+        } else {
+          telegramText += `📎 *CV :* non fourni\n`;
+        }
+        telegramText += `\n⏰ _Envoyé depuis la page Offre de Formation_`;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+        statusDiv.className = 'status-message';
+        statusDiv.textContent = '⏳ Envoi de la candidature...';
+
+        try {
+          const textResponse = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: CHAT_ID,
+              text: telegramText,
+              parse_mode: 'Markdown'
+            })
+          });
+
+          const textData = await textResponse.json();
+          if (!textData.ok) {
+            throw new Error(textData.description || 'Erreur lors de l\'envoi du message');
+          }
+
+          if (cvFile) {
+            const formData = new FormData();
+            formData.append('chat_id', CHAT_ID);
+            formData.append('document', cvFile);
+            formData.append('caption', `📎 CV de ${fullName} – ${position}`);
+
+            const fileResponse = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, {
+              method: 'POST',
+              body: formData
+            });
+
+            const fileData = await fileResponse.json();
+            if (!fileData.ok) {
+              console.warn('Erreur envoi CV:', fileData.description);
+              statusDiv.className = 'status-message success';
+              statusDiv.textContent = '✅ Candidature envoyée ! (Le CV n\'a pas pu être transmis, merci de le renvoyer par email).';
+            } else {
+              statusDiv.className = 'status-message success';
+              statusDiv.textContent = '✅ Candidature et CV envoyés avec succès !';
+            }
+          } else {
+            statusDiv.className = 'status-message success';
+            statusDiv.textContent = '✅ Candidature envoyée avec succès !';
+          }
+
+          form.reset();
+          fileNameSpan.textContent = 'Aucun fichier sélectionné';
+
+        } catch (error) {
+          console.error('Erreur Telegram:', error);
+          statusDiv.className = 'status-message error';
+          statusDiv.textContent = `❌ Erreur : ${error.message}. Veuillez réessayer.`;
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma candidature';
+        }
+      });
+
+      function escapeMarkdown(text) {
+        if (!text) return '';
+        return text.replace(/([_*\[\]()~`>#+\-=|{}.!])/g, '\\$1');
+      }
+
+      console.log('⚙️ Formulaire prêt. Configurez BOT_TOKEN et CHAT_ID dans le script.');
+    })();
+  </script>
+</body>
+</html>
